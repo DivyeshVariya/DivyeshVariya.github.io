@@ -5,41 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 36px;
+        }
+
+        a i {
+            color: #333;
+        }
+
+        a:hover i {
+            color: #0056b3; /* Changes the icon color on hover */
+        }
+    </style>
 </head>
-<body style="text-align: center;" style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333;">
-    <div style="max-width: 600px; margin: 50px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+<body>
+    <div class="container">
         <div style="text-align: center;">
-            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" style="border-radius: 50%; width: 150px; height: 150px; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; margin: 0;">Divyesh Variya</h1>
+            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture">
+            <h1>Divyesh Variya</h1>
             <p style="font-size: 18px; color: #555;">Java Full Stack Developer</p>
         </div>
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+        <hr>
         <div>
-            <h2 style="font-size: 20px; margin-bottom: 10px;">About Me</h2>
-            <p style="line-height: 1.6;">Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with Java, Spring Boot, and a range of modern tools and technologies like Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3.
-
-What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
-</p>
+            <h2>About Me</h2>
+            <p>
+                Hi, I’m a passionate <strong>Java Full Stack Developer</strong> who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with <strong>Java, Spring Boot</strong>, and a range of modern tools and technologies like <strong>Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3</strong>.
+            </p>
+            <p>
+                What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
+            </p>
         </div>
         <div>
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Total Experience</h2>
-            <p style="line-height: 1.6;">2 years</p>
+            <h2>Total Experience</h2>
+            <p>2 years</p>
         </div>
-        <div style="margin-top: 20px;">
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Contact Information</h2>
-            <p style="margin: 5px 0;"><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-            <p style="margin: 5px 0;"><strong>Phone:</strong> +91-7778029116</p>
-            <p style="margin: 5px 0;"><strong>Location:</strong> Ahmedabad, India</p>
+        <div>
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+            <p><strong>Phone:</strong> +91-7778029116</p>
+            <p><strong>Location:</strong> Ahmedabad, India</p>
         </div>
-        <div style="margin-top: 20px; text-align: center;">
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Follow Me</h2>
-            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
-                <i class='fa fa-linkedin' style='font-size:24px;color:blue'></i> 
-<!--                 LinkedIn -->
+        <div>
+            <h2>Follow Me</h2>
+            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219" target="_blank">
+                <i class="fa fa-linkedin" style="font-size:24px;color:blue"></i>
             </a>
-            <a href="https://github.com/DivyeshVariya" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
-                <i class='fa fa-github' style='font-size:24px'></i> 
-<!--                 GitHub -->
+            <a href="https://github.com/DivyeshVariya" target="_blank">
+                <i class="fa fa-github" style="font-size:24px"></i>
             </a>
         </div>
     </div>
