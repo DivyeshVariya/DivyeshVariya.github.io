@@ -3,172 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Divyesh Variya</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Portfolio</title>
     <style>
-        /* Base Styling */
         body {
+            text-align: center;
+            font-family: Arial, sans-serif;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: #0e0e0e; /* Dark coding theme background */
-            color: #f0f0f0; /* Light text for contrast */
+            padding: 0;
+            background-color: #000;
+            color: #333;
+            overflow: hidden;
         }
 
         /* Background Animation */
-        .animated-background {
+        .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            background: #000;
             overflow: hidden;
             z-index: -1;
         }
 
-        .line {
+        .background span {
             position: absolute;
-            background: rgba(0, 255, 0, 0.8);
-            width: 2px;
-            height: 100%;
-            animation: move 5s linear infinite;
-            opacity: 0.4;
+            color: #0f0;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            animation: float 10s linear infinite;
         }
 
-        @keyframes move {
+        @keyframes float {
             0% {
-                transform: translateY(-100%);
+                transform: translateY(100vh);
+                opacity: 1;
             }
             100% {
-                transform: translateY(100%);
+                transform: translateY(-10vh);
+                opacity: 0;
             }
         }
 
-        .line:nth-child(odd) {
-            animation-duration: 6s;
-        }
-
-        /* Layout and Content */
-        .container {
-            max-width: 800px;
-            margin: 100px auto;
+        /* Content Box */
+        .content {
+            max-width: 600px;
+            margin: 50px auto;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #00ff00; /* Highlight name */
-        }
-
-        .header p {
-            color: #ccc;
-            font-size: 18px;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background: #333;
-            margin: 20px 0;
-        }
-
-        h2 {
-            color: #00ff00;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        /* Social Icons */
-        .social {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .social a {
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 24px;
-            color: #ccc;
-            transition: color 0.3s ease;
-        }
-
-        .social a:hover {
-            color: #00ff00; /* Highlight on hover */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-
-    <!-- Animated Coding Background -->
-    <div class="animated-background">
-        <!-- Generating animated lines -->
-        <div class="line" style="left: 10%;"></div>
-        <div class="line" style="left: 20%;"></div>
-        <div class="line" style="left: 30%;"></div>
-        <div class="line" style="left: 40%;"></div>
-        <div class="line" style="left: 50%;"></div>
-        <div class="line" style="left: 60%;"></div>
-        <div class="line" style="left: 70%;"></div>
-        <div class="line" style="left: 80%;"></div>
+    <div class="background">
+        <!-- Add Binary Digits as Animation -->
+        <script>
+            const background = document.querySelector('.background');
+            for (let i = 0; i < 100; i++) {
+                const span = document.createElement('span');
+                span.textContent = Math.random() > 0.5 ? '0' : '1';
+                span.style.left = Math.random() * 100 + 'vw';
+                span.style.animationDuration = Math.random() * 5 + 5 + 's';
+                span.style.animationDelay = Math.random() * 5 + 's';
+                background.appendChild(span);
+            }
+        </script>
     </div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="header">
-            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture">
-            <h1>Divyesh Variya</h1>
-            <p>Java Full Stack Developer</p>
+    <div class="content">
+        <div style="text-align: center;">
+            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" style="border-radius: 50%; width: 150px; height: 150px; margin-bottom: 20px;">
+            <h1 style="font-size: 24px; margin: 0;">Divyesh Variya</h1>
+            <p style="font-size: 18px; color: #555;">Java Full Stack Developer</p>
         </div>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+        <div>
+            <h2 style="font-size: 20px; margin-bottom: 10px;">About Me</h2>
+            <p style="line-height: 1.6;">Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with Java, Spring Boot, and a range of modern tools and technologies like Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3.
 
-        <hr>
-
-        <h2>About Me</h2>
-        <p>
-            Hi, I’m a passionate <strong>Java Full Stack Developer</strong> who loves crafting web applications that are efficient, scalable, and user-friendly. 
-            My journey in software development has allowed me to work extensively with <strong>Java, Spring Boot</strong>, and modern tools such as 
-            <strong>Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3</strong>.
-        </p>
-        <p>
-            I thrive on designing robust backend architectures and seamless integrations, ensuring that my solutions solve real-world challenges 
-            and leave a lasting impact.
-        </p>
-
-        <h2>Total Experience</h2>
-        <p>2 years</p>
-
-        <h2>Contact Information</h2>
-        <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-        <p><strong>Phone:</strong> +91-7778029116</p>
-        <p><strong>Location:</strong> Ahmedabad, India</p>
-
-        <h2>Follow Me</h2>
-        <div class="social">
-            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com/DivyeshVariya" target="_blank"><i class="fa fa-github"></i></a>
+What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
+</p>
+        </div>
+        <div>
+            <h2 style="font-size: 20px; margin-bottom: 10px;">Total Experience</h2>
+            <p style="line-height: 1.6;">2 years</p>
+        </div>
+        <div style="margin-top: 20px;">
+            <h2 style="font-size: 20px; margin-bottom: 10px;">Contact Information</h2>
+            <p style="margin: 5px 0;"><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+            <p style="margin: 5px 0;"><strong>Phone:</strong> +91-7778029116</p>
+            <p style="margin: 5px 0;"><strong>Location:</strong> Ahmedabad, India</p>
+        </div>
+        <div style="margin-top: 20px; text-align: center;">
+            <h2 style="font-size: 20px; margin-bottom: 10px;">Follow Me</h2>
+            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
+                <i class='fa fa-linkedin' style='font-size:24px;color:blue'></i> 
+            </a>
+            <a href="https://github.com/DivyeshVariya" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
+                <i class='fa fa-github' style='font-size:24px'></i> 
+            </a>
         </div>
     </div>
-
 </body>
 </html>
