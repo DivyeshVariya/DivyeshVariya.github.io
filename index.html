@@ -10,22 +10,27 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace;
+            font-family: 'Courier New', monospace; /* Coding style font */
             color: #f4f4f9;
             background: black;
+            overflow: hidden; /* Prevent scroll for binary rain */
         }
 
         /* Binary Rain Animation */
         .binary-rain {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
 
         .binary {
             position: absolute;
+            top: -100px;
+            left: 0;
             font-family: 'Courier New', monospace;
             font-size: 14px;
             color: rgba(0, 255, 0, 0.7);
@@ -33,16 +38,13 @@
         }
 
         @keyframes fall {
-            0% {
+            from {
                 transform: translateY(-100px);
                 opacity: 1;
             }
-            80% {
-                opacity: 1;
-            }
-            100% {
+            to {
                 transform: translateY(110vh);
-                opacity: 0;
+                opacity: 0.9;
             }
         }
 
@@ -54,21 +56,19 @@
             animation-duration: 6s;
         }
 
-        /* Content Wrapper */
-        .wrapper {
-            position: relative;
-            z-index: 2; /* Ensure the content is above the animation */
-            padding: 20px;
-        }
-
-        /* Content Styling */
+        /* Content Container */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.9);
+            position: relative;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);  /* Semi-transparent background */
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-            padding: 20px;
+            z-index: 1;  /* Ensure the content is on top of the binary rain */
+            text-align: center;
+            max-width: 800px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
             box-sizing: border-box;
         }
 
@@ -86,13 +86,11 @@
             font-size: 2.5em;
             color: #0f0;
             margin-bottom: 10px;
-            text-align: center;
         }
 
         p.subtitle {
             font-size: 1.3em;
             color: #fff;
-            text-align: center;
         }
 
         hr {
@@ -104,7 +102,6 @@
         h2 {
             font-size: 1.5em;
             color: #0f0;
-            margin-bottom: 10px;
         }
 
         p {
@@ -113,11 +110,6 @@
         }
 
         /* Social Links */
-        .social {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         .social a {
             margin: 0 15px;
             text-decoration: none;
@@ -131,6 +123,11 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
             h1 {
                 font-size: 2em;
             }
@@ -146,63 +143,65 @@
             p {
                 font-size: 0.9em;
             }
-
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="binary-rain">
-        <!-- Generate binary streams dynamically -->
-        <script>
-            const rainContainer = document.querySelector('.binary-rain');
+    <div class="binary-rain"></div>
+
+    <div class="container">
+        <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Divyesh Variya</h1>
+        <p class="subtitle">Java Full Stack Developer</p>
+        <hr>
+        <h2>About Me</h2>
+        <p>
+            Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with modern tools and technologies like Spring Boot, Docker, Kafka, and AWS S3.
+        </p>
+        <p>
+            I thrive on designing robust backend architectures and seamless integrations that solve real-world challenges and deliver impactful solutions.
+        </p>
+        <hr>
+        <h2>Total Experience</h2>
+        <p>2 years</p>
+        <hr>
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+        <p><strong>Phone:</strong> +91-7778029116</p>
+        <p><strong>Location:</strong> Ahmedabad, India</p>
+        <hr>
+        <h2>Follow Me</h2>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/DivyeshVariya" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const rainContainer = document.querySelector('.binary-rain');
+        function createBinaryStream() {
             for (let i = 0; i < 200; i++) {
                 const binaryStream = document.createElement('div');
                 binaryStream.classList.add('binary');
                 binaryStream.textContent = Math.random() > 0.5 ? '0' : '1';
                 binaryStream.style.left = `${Math.random() * 100}vw`;
-                binaryStream.style.animationDelay = `${Math.random() * 10}s`;
-                binaryStream.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                binaryStream.style.animationDelay = `${Math.random() * 5}s`;
+                binaryStream.style.animationDuration = `${Math.random() * 3 + 3}s`;
                 rainContainer.appendChild(binaryStream);
-            }
-        </script>
-    </div>
 
-    <div class="wrapper">
-        <div class="container">
-            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Divyesh Variya</h1>
-            <p class="subtitle">Java Full Stack Developer</p>
-            <hr>
-            <h2>About Me</h2>
-            <p>
-                Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with modern tools and technologies like Spring Boot, Docker, Kafka, and AWS S3.
-            </p>
-            <p>
-                I thrive on designing robust backend architectures and seamless integrations that solve real-world challenges and deliver impactful solutions.
-            </p>
-            <hr>
-            <h2>Total Experience</h2>
-            <p>2 years</p>
-            <hr>
-            <h2>Contact Information</h2>
-            <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-            <p><strong>Phone:</strong> +91-7778029116</p>
-            <p><strong>Location:</strong> Ahmedabad, India</p>
-            <hr>
-            <h2>Follow Me</h2>
-            <div class="social">
-                <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/DivyeshVariya" target="_blank">
-                    <i class="fa fa-github"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+                // Remove binary elements once they exit the viewport
+                binaryStream.addEventListener('animationend', () => {
+                    binaryStream.remove();
+                });
+            }
+        }
+
+        // setInterval(createBinaryStream, 1000);
+        createBinaryStream(); // Initial generation
+    </script>
 </body>
 </html>
