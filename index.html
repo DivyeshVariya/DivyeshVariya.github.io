@@ -10,28 +10,22 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', monospace; /* Coding style font */
+            font-family: 'Courier New', monospace;
             color: #f4f4f9;
             background: black;
-            overflow: auto;
-            height: 100%;  /* Make sure the page fills the full height */ 
         }
 
         /* Binary Rain Animation */
         .binary-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: absolute;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
 
         .binary {
             position: absolute;
-            top: -100px;
-            left: 0;
             font-family: 'Courier New', monospace;
             font-size: 14px;
             color: rgba(0, 255, 0, 0.7);
@@ -60,19 +54,22 @@
             animation-duration: 6s;
         }
 
-        /* Content Container */
-        .container {
+        /* Content Wrapper */
+        .wrapper {
             position: relative;
-            width: 100%;
+            z-index: 2; /* Ensure the content is above the animation */
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);  /*Semi-transparent background*/ 
+        }
+
+        /* Content Styling */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-            z-index: 1;  /* Ensure the content is on top of the binary rain */
-            text-align: center;
-            height: 100%;  /* Make the container at least full height of the viewport */
-            overflow-y: scroll;    /*Enable scrolling inside the container */
-            box-sizing: content-box;  /* Center the container */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .profile-pic {
@@ -89,11 +86,13 @@
             font-size: 2.5em;
             color: #0f0;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         p.subtitle {
             font-size: 1.3em;
             color: #fff;
+            text-align: center;
         }
 
         hr {
@@ -105,6 +104,7 @@
         h2 {
             font-size: 1.5em;
             color: #0f0;
+            margin-bottom: 10px;
         }
 
         p {
@@ -113,6 +113,11 @@
         }
 
         /* Social Links */
+        .social {
+            text-align: center;
+            margin-top: 20px;
+        }
+
         .social a {
             margin: 0 15px;
             text-decoration: none;
@@ -126,11 +131,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 15px;
-            }
-
             h1 {
                 font-size: 2em;
             }
@@ -145,6 +145,11 @@
 
             p {
                 font-size: 0.9em;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 15px;
             }
         }
     </style>
@@ -164,39 +169,40 @@
                 rainContainer.appendChild(binaryStream);
             }
         </script>
+    </div>
 
-    <div class="container">
-        <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
-        <h1>Divyesh Variya</h1>
-        <p class="subtitle">Java Full Stack Developer</p>
-        <hr>
-        <h2>About Me</h2>
-        <p>
-            Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with modern tools and technologies like Spring Boot, Docker, Kafka, and AWS S3.
-        </p>
-        <p>
-            I thrive on designing robust backend architectures and seamless integrations that solve real-world challenges and deliver impactful solutions.
-        </p>
-        <hr>
-        <h2>Total Experience</h2>
-        <p>2 years</p>
-        <hr>
-        <h2>Contact Information</h2>
-        <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-        <p><strong>Phone:</strong> +91-7778029116</p>
-        <p><strong>Location:</strong> Ahmedabad, India</p>
-        <hr>
-        <h2>Follow Me</h2>
-        <div class="social">
-            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/DivyeshVariya" target="_blank">
-                <i class="fa fa-github"></i>
-            </a>
+    <div class="wrapper">
+        <div class="container">
+            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Divyesh Variya</h1>
+            <p class="subtitle">Java Full Stack Developer</p>
+            <hr>
+            <h2>About Me</h2>
+            <p>
+                Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with modern tools and technologies like Spring Boot, Docker, Kafka, and AWS S3.
+            </p>
+            <p>
+                I thrive on designing robust backend architectures and seamless integrations that solve real-world challenges and deliver impactful solutions.
+            </p>
+            <hr>
+            <h2>Total Experience</h2>
+            <p>2 years</p>
+            <hr>
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+            <p><strong>Phone:</strong> +91-7778029116</p>
+            <p><strong>Location:</strong> Ahmedabad, India</p>
+            <hr>
+            <h2>Follow Me</h2>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DivyeshVariya" target="_blank">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
 </body>
 </html>
