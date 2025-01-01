@@ -6,38 +6,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Portfolio</title>
     <style>
-        body {
+        /* General Reset */
+        body, html {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
             color: #f4f4f9;
             background: black;
             overflow: hidden;
         }
 
-        .background {
+        /* Binary Rain Animation */
+        .binary-rain {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            overflow: hidden;
             z-index: -1;
-            animation: binaryAnimation 20s linear infinite;
         }
 
-        @keyframes binaryAnimation {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 200%; }
+        .binary {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: rgba(0, 255, 0, 0.7);
+            animation: fall linear infinite;
         }
 
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+
+        /* Dynamic Rain Generation */
+        .binary:nth-child(odd) {
+            animation-duration: 4s;
+        }
+        .binary:nth-child(even) {
+            animation-duration: 6s;
+        }
+
+        /* Content Container */
         .container {
+            position: relative;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 50px auto;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
-            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+            z-index: 1;
+            text-align: center;
         }
 
         .profile-pic {
@@ -46,33 +78,30 @@
             border-radius: 50%;
             width: 150px;
             height: 150px;
-            border: 3px solid #0f0;
+            border: 4px solid #0f0;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
         }
 
         h1 {
-            font-size: 2em;
-            margin: 10px 0;
+            font-size: 2.5em;
             color: #0f0;
-            text-align: center;
+            margin-bottom: 10px;
         }
 
         p.subtitle {
-            font-size: 1.2em;
-            color: #f4f4f9;
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            color: #fff;
         }
 
         hr {
             border: none;
             border-top: 1px solid #0f0;
-            margin: 20px 0;
+            margin: 20px auto;
         }
 
         h2 {
             font-size: 1.5em;
             color: #0f0;
-            margin-bottom: 10px;
         }
 
         p {
@@ -80,15 +109,11 @@
             margin: 10px 0;
         }
 
-        .contact, .social {
-            text-align: center;
-            margin-top: 20px;
-        }
-
+        /* Social Links */
         .social a {
-            margin: 0 10px;
+            margin: 0 15px;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 1.8em;
             color: #0f0;
         }
 
@@ -96,6 +121,7 @@
             color: #fff;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 margin: 20px;
@@ -103,7 +129,7 @@
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
 
             p.subtitle {
@@ -121,7 +147,22 @@
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <div class="binary-rain">
+        <!-- Generate binary streams dynamically -->
+        <script>
+            const rainContainer = document.querySelector('.binary-rain');
+            for (let i = 0; i < 200; i++) {
+                const binaryStream = document.createElement('div');
+                binaryStream.classList.add('binary');
+                binaryStream.textContent = Math.random() > 0.5 ? '0' : '1';
+                binaryStream.style.left = `${Math.random() * 100}vw`;
+                binaryStream.style.animationDelay = `${Math.random() * 10}s`;
+                binaryStream.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                rainContainer.appendChild(binaryStream);
+            }
+        </script>
+    </div>
+
     <div class="container">
         <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
         <h1>Divyesh Variya</h1>
@@ -129,10 +170,10 @@
         <hr>
         <h2>About Me</h2>
         <p>
-            Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with Java, Spring Boot, and a range of modern tools and technologies like Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3.
+            Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with modern tools and technologies like Spring Boot, Docker, Kafka, and AWS S3.
         </p>
         <p>
-            What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
+            I thrive on designing robust backend architectures and seamless integrations that solve real-world challenges and deliver impactful solutions.
         </p>
         <hr>
         <h2>Total Experience</h2>
