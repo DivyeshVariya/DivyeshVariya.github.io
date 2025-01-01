@@ -10,25 +10,60 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-            background-size: 400% 400%;
-            animation: gradientBG 8s ease infinite;
+            color: #fff;
+            overflow: hidden; /* Prevent scrollbars for animation */
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Coding-themed animated background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1; /* Send background behind content */
+        }
+
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .matrix span {
+            font-family: monospace;
+            font-size: 16px;
+            color: #0f0;
+            animation: drop 3s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes drop {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
 
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         img {
@@ -45,7 +80,7 @@
         hr {
             margin: 20px 0;
             border: none;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #555;
         }
 
         a {
@@ -55,20 +90,39 @@
         }
 
         a i {
-            color: #333;
+            color: #fff;
         }
 
         a:hover i {
-            color: #0056b3; /* Changes the icon color on hover */
+            color: #0f0; /* Green on hover */
         }
     </style>
 </head>
 <body>
+    <!-- Animated background -->
+    <div class="background">
+        <div class="matrix">
+            <!-- Generate many spans for falling code -->
+            <span>010101</span>
+            <span>101010</span>
+            <span>110011</span>
+            <span>011100</span>
+            <span>001001</span>
+            <span>111000</span>
+            <span>010110</span>
+            <span>100101</span>
+            <span>011010</span>
+            <span>101110</span>
+            <!-- Repeat as necessary for the effect -->
+        </div>
+    </div>
+
+    <!-- Content -->
     <div class="container">
         <div style="text-align: center;">
             <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture">
             <h1>Divyesh Variya</h1>
-            <p style="font-size: 18px; color: #555;">Java Full Stack Developer</p>
+            <p style="font-size: 18px; color: #ccc;">Java Full Stack Developer</p>
         </div>
         <hr>
         <div>
