@@ -3,156 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Divyesh Variya</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Portfolio</title>
     <style>
+        /* Base Styling */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            color: #fff;
-            overflow: hidden; /* Prevent scrollbars for animation */
+            font-family: 'Arial', sans-serif;
+            background: #0e0e0e; /* Dark coding theme background */
+            color: #f0f0f0; /* Light text for contrast */
         }
 
-        /* Coding-themed animated background */
-        .background {
+        /* Background Animation */
+        .animated-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: black;
-            z-index: -1; /* Send background behind content */
-        }
-
-        .matrix {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             overflow: hidden;
-            white-space: nowrap;
+            z-index: -1;
         }
 
-        .matrix span {
-            font-family: monospace;
-            font-size: 16px;
-            color: #0f0;
-            animation: drop 3s linear infinite;
-            display: inline-block;
+        .line {
+            position: absolute;
+            background: rgba(0, 255, 0, 0.8);
+            width: 2px;
+            height: 100%;
+            animation: move 5s linear infinite;
+            opacity: 0.4;
         }
 
-        @keyframes drop {
+        @keyframes move {
             0% {
                 transform: translateY(-100%);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
             }
             100% {
-                transform: translateY(100vh);
-                opacity: 0;
+                transform: translateY(100%);
             }
         }
 
+        .line:nth-child(odd) {
+            animation-duration: 6s;
+        }
+
+        /* Layout and Content */
         .container {
-            max-width: 600px;
-            margin: 50px auto;
+            max-width: 800px;
+            margin: 100px auto;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
+        .header {
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        h1, h2 {
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
             margin: 0;
+            font-size: 28px;
+            color: #00ff00; /* Highlight name */
+        }
+
+        .header p {
+            color: #ccc;
+            font-size: 18px;
         }
 
         hr {
-            margin: 20px 0;
             border: none;
-            border-top: 1px solid #555;
+            height: 1px;
+            background: #333;
+            margin: 20px 0;
         }
 
-        a {
-            margin: 0 10px;
+        h2 {
+            color: #00ff00;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Social Icons */
+        .social {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social a {
             text-decoration: none;
-            font-size: 36px;
+            margin: 0 10px;
+            font-size: 24px;
+            color: #ccc;
+            transition: color 0.3s ease;
         }
 
-        a i {
-            color: #fff;
-        }
-
-        a:hover i {
-            color: #0f0; /* Green on hover */
+        .social a:hover {
+            color: #00ff00; /* Highlight on hover */
         }
     </style>
 </head>
 <body>
-    <!-- Animated background -->
-    <div class="background">
-        <div class="matrix">
-            <!-- Generate many spans for falling code -->
-            <span>010101</span>
-            <span>101010</span>
-            <span>110011</span>
-            <span>011100</span>
-            <span>001001</span>
-            <span>111000</span>
-            <span>010110</span>
-            <span>100101</span>
-            <span>011010</span>
-            <span>101110</span>
-            <!-- Repeat as necessary for the effect -->
+
+    <!-- Animated Coding Background -->
+    <div class="animated-background">
+        <!-- Generating animated lines -->
+        <div class="line" style="left: 10%;"></div>
+        <div class="line" style="left: 20%;"></div>
+        <div class="line" style="left: 30%;"></div>
+        <div class="line" style="left: 40%;"></div>
+        <div class="line" style="left: 50%;"></div>
+        <div class="line" style="left: 60%;"></div>
+        <div class="line" style="left: 70%;"></div>
+        <div class="line" style="left: 80%;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture">
+            <h1>Divyesh Variya</h1>
+            <p>Java Full Stack Developer</p>
+        </div>
+
+        <hr>
+
+        <h2>About Me</h2>
+        <p>
+            Hi, I’m a passionate <strong>Java Full Stack Developer</strong> who loves crafting web applications that are efficient, scalable, and user-friendly. 
+            My journey in software development has allowed me to work extensively with <strong>Java, Spring Boot</strong>, and modern tools such as 
+            <strong>Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3</strong>.
+        </p>
+        <p>
+            I thrive on designing robust backend architectures and seamless integrations, ensuring that my solutions solve real-world challenges 
+            and leave a lasting impact.
+        </p>
+
+        <h2>Total Experience</h2>
+        <p>2 years</p>
+
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+        <p><strong>Phone:</strong> +91-7778029116</p>
+        <p><strong>Location:</strong> Ahmedabad, India</p>
+
+        <h2>Follow Me</h2>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/DivyeshVariya" target="_blank"><i class="fa fa-github"></i></a>
         </div>
     </div>
 
-    <!-- Content -->
-    <div class="container">
-        <div style="text-align: center;">
-            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture">
-            <h1>Divyesh Variya</h1>
-            <p style="font-size: 18px; color: #ccc;">Java Full Stack Developer</p>
-        </div>
-        <hr>
-        <div>
-            <h2>About Me</h2>
-            <p>
-                Hi, I’m a passionate <strong>Java Full Stack Developer</strong> who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with <strong>Java, Spring Boot</strong>, and a range of modern tools and technologies like <strong>Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3</strong>.
-            </p>
-            <p>
-                What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
-            </p>
-        </div>
-        <div>
-            <h2>Total Experience</h2>
-            <p>2 years</p>
-        </div>
-        <div>
-            <h2>Contact Information</h2>
-            <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-            <p><strong>Phone:</strong> +91-7778029116</p>
-            <p><strong>Location:</strong> Ahmedabad, India</p>
-        </div>
-        <div>
-            <h2>Follow Me</h2>
-            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219" target="_blank">
-                <i class="fa fa-linkedin" style="font-size:24px;color:blue"></i>
-            </a>
-            <a href="https://github.com/DivyeshVariya" target="_blank">
-                <i class="fa fa-github" style="font-size:24px"></i>
-            </a>
-        </div>
-    </div>
 </body>
 </html>
