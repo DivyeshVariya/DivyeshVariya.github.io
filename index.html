@@ -175,8 +175,7 @@
     <div class="binary-rain">
         <script>
             const rainContainer = document.querySelector('.binary-rain');
-            // for (let i = 0; i < 500; i++) {  /* Increased number of binary streams */
-            while(true){
+            for (let i = 0; i < 500; i++) {  /* Increased number of binary streams */
                 const binaryStream = document.createElement('div');
                 binaryStream.classList.add('binary');
                 binaryStream.textContent = Math.random() > 0.5 ? '0' : '1';
