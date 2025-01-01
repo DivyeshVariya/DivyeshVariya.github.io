@@ -7,106 +7,147 @@
     <title>Portfolio</title>
     <style>
         body {
-            text-align: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #333;
+            color: #fff;
             overflow: hidden;
         }
 
-        /* Background Animation */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 3px solid #00ffcc;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0;
+            color: #00ffcc;
+        }
+
+        p.subtitle {
+            font-size: 20px;
+            color: #999;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #555;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #eee;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #00ffcc;
+            font-size: 24px;
+        }
+
         .background {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: #000;
+            z-index: 1;
             overflow: hidden;
-            z-index: -1;
         }
 
         .background span {
             position: absolute;
-            color: #0f0;
-            font-size: 16px;
-            font-family: 'Courier New', Courier, monospace;
+            color: rgba(0, 255, 204, 0.1);
+            font-size: 18px;
             animation: float 10s linear infinite;
         }
 
         @keyframes float {
             0% {
-                transform: translateY(100vh);
+                transform: translateY(0) translateX(0);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-10vh);
+                transform: translateY(-1500px) translateX(-300px);
                 opacity: 0;
             }
-        }
-
-        /* Content Box */
-        .content {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
         }
     </style>
 </head>
 <body>
     <div class="background">
-        <!-- Add Binary Digits as Animation -->
+        <!-- Animated binary code -->
         <script>
             const background = document.querySelector('.background');
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 300; i++) {
                 const span = document.createElement('span');
                 span.textContent = Math.random() > 0.5 ? '0' : '1';
-                span.style.left = Math.random() * 100 + 'vw';
-                span.style.animationDuration = Math.random() * 5 + 5 + 's';
-                span.style.animationDelay = Math.random() * 5 + 's';
+                span.style.left = `${Math.random() * 100}%`;
+                span.style.animationDuration = `${Math.random() * 3 + 7}s`;
+                span.style.animationDelay = `${Math.random() * 10}s`;
                 background.appendChild(span);
             }
         </script>
     </div>
-
-    <div class="content">
-        <div style="text-align: center;">
-            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" style="border-radius: 50%; width: 150px; height: 150px; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; margin: 0;">Divyesh Variya</h1>
-            <p style="font-size: 18px; color: #555;">Java Full Stack Developer</p>
+    <div class="container">
+        <div class="text-center">
+            <img src="https://icon-library.com/images/boy-icon-png/boy-icon-png-10.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Divyesh Variya</h1>
+            <p class="subtitle">Java Full Stack Developer</p>
         </div>
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+        <hr>
         <div>
-            <h2 style="font-size: 20px; margin-bottom: 10px;">About Me</h2>
-            <p style="line-height: 1.6;">Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with Java, Spring Boot, and a range of modern tools and technologies like Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3.
-
-What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.
-</p>
+            <h2>About Me</h2>
+            <p>Hi, I’m a passionate Java Full Stack Developer who loves crafting web applications that are efficient, scalable, and user-friendly. My journey in software development has allowed me to work extensively with Java, Spring Boot, and a range of modern tools and technologies like Docker, Elasticsearch, Redis, Kafka, Prometheus, Grafana, and AWS S3.</p>
+            <p>What excites me the most is designing robust backend architectures and seamless integrations that bring ideas to life and solve real-world challenges. Whether it’s building RESTful APIs, ensuring optimal database performance, or creating intuitive user interfaces, I thrive on delivering solutions that leave a lasting impact.</p>
         </div>
         <div>
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Total Experience</h2>
-            <p style="line-height: 1.6;">2 years</p>
+            <h2>Total Experience</h2>
+            <p>2 years</p>
         </div>
-        <div style="margin-top: 20px;">
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Contact Information</h2>
-            <p style="margin: 5px 0;"><strong>Email:</strong> divyeshvariya106@gmail.com</p>
-            <p style="margin: 5px 0;"><strong>Phone:</strong> +91-7778029116</p>
-            <p style="margin: 5px 0;"><strong>Location:</strong> Ahmedabad, India</p>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> divyeshvariya106@gmail.com</p>
+            <p><strong>Phone:</strong> +91-7778029116</p>
+            <p><strong>Location:</strong> Ahmedabad, India</p>
         </div>
-        <div style="margin-top: 20px; text-align: center;">
-            <h2 style="font-size: 20px; margin-bottom: 10px;">Follow Me</h2>
-            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
-                <i class='fa fa-linkedin' style='font-size:24px;color:blue'></i> 
+        <div class="social-links">
+            <h2>Follow Me</h2>
+            <a href="https://www.linkedin.com/in/divyesh-variya-7a0b17219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                <i class='fa fa-linkedin'></i>
             </a>
-            <a href="https://github.com/DivyeshVariya" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333; font-size: 36px;">
-                <i class='fa fa-github' style='font-size:24px'></i> 
+            <a href="https://github.com/DivyeshVariya" target="_blank">
+                <i class='fa fa-github'></i>
             </a>
         </div>
     </div>
